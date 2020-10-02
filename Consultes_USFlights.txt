@@ -1,3 +1,4 @@
+SELECT COUNT(*) FROM usairlineflights2.flights;
 SELECT Origin, AVG(ArrDelay), AVG(DepDelay) FROM usairlineflights2.flights GROUP BY Origin;
 SELECT Origin, colYear, colMonth, AVG(ArrDelay) FROM usairlineflights2.flights GROUP BY Origin, colyear, colMonth;
 SELECT City, colYear, colMonth, AVG(ArrDelay) FROM usairlineflights2.flights INNER JOIN usairports ON usairports.IATA = flights.Origin GROUP BY City, colyear, colMonth;
