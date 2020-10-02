@@ -1,0 +1,7 @@
+SELECT * FROM usairlineflights2.flights;
+SELECT Origin, AVG(ArrDelay), AVG(DepDelay) FROM usairlineflights2.flights GROUP BY Origin;
+SELECT Origin, colYear, colMonth, AVG(ArrDelay) FROM usairlineflights2.flights GROUP BY Origin, colyear, colMonth;
+SELECT City, colYear, colMonth, AVG(ArrDelay) FROM usairlineflights2.flights INNER JOIN usairports ON usairports.IATA = flights.Origin GROUP BY City, colyear, colMonth;
+SELECT UniqueCarrier, colYear, colMonth, Cancelled FROM usairlineflights2.flights INNER JOIN carriers ON carriers.CarrierCode = flights.UniqueCarrier GROUP BY UniqueCarrier, colyear, colMonth, Cancelled ORDER BY Cancelled DESC;
+SELECT TailNum, Distance FROM usairlineflights2.flights ORDER BY Distance DESC LIMIT 10;
+SELECT UniqueCarrier, AVG(ArrDelay) AS avgDelay FROM usairlineflights2.flights GROUP BY UniqueCarrier HAVING avgDelay > 10 ORDER BY avgDelay DESC;
